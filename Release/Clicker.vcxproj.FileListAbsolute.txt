@@ -1,0 +1,13 @@
+C:\DYSK D\Projekty\Clicker\x64\Release\Clicker.exe
+C:\DYSK D\Projekty\Clicker\x64\Release\Images\backArrow.bmp
+C:\DYSK D\Projekty\Clicker\x64\Release\Images\Belt.bmp
+C:\DYSK D\Projekty\Clicker\x64\Release\Images\circleGreen.bmp
+C:\DYSK D\Projekty\Clicker\x64\Release\Images\circleGreenLight.bmp
+C:\DYSK D\Projekty\Clicker\x64\Release\Images\circleGrey.bmp
+C:\DYSK D\Projekty\Clicker\x64\Release\Images\circleOrange.bmp
+C:\DYSK D\Projekty\Clicker\x64\Release\Images\circleOrangeLight.bmp
+C:\DYSK D\Projekty\Clicker\x64\Release\Images\circleRed.bmp
+C:\DYSK D\Projekty\Clicker\x64\Release\Images\circleRedLight.bmp
+C:\DYSK D\Projekty\Clicker\x64\Release\Scores\Scores.txt
+C:\DYSK D\Projekty\Clicker\x64\Release\Scores\Scores Raw — kopia.txt
+C:\DYSK D\Projekty\Clicker\x64\Release\Scores\Scores — kopia.txt
