@@ -710,7 +710,7 @@ void AddMainControls()
 
   //------- HEADERS --------------
     tmp = CreateWindowW(L"static", L"HIGH SCORES", WS_VISIBLE | WS_CHILD | SS_RIGHT,
-        40, 200, 100, 20, hwndMain, NULL, nullptr, nullptr);
+        40, 235, 100, 20, hwndMain, NULL, nullptr, nullptr);
     tmp = CreateWindowW(L"static", L"NAME", WS_VISIBLE | WS_CHILD | SS_LEFT,
         75, 260, 50, 20, hwndMain, NULL, nullptr, nullptr);
     tmp = CreateWindowW(L"static", L"LVL", WS_VISIBLE | WS_CHILD | SS_LEFT,
@@ -1086,8 +1086,7 @@ void LoadBoardImages()
 
 void LoadMainImages()
 {
-    //hbmBelt = (HBITMAP)LoadImageW(NULL, L"Images\\Belt.bmp", IMAGE_BITMAP, 40, 20, LR_LOADFROMFILE);
-    hbmBelt = (HBITMAP)LoadImageW(NULL, L"Belt.bmp", IMAGE_BITMAP, 40, 20, LR_LOADFROMFILE);
+    hbmBelt = (HBITMAP)LoadImageW(NULL, L"Images\\Belt.bmp", IMAGE_BITMAP, 40, 20, LR_LOADFROMFILE);
 }
 
 void SetScores()
