@@ -1,20 +1,11 @@
-﻿//{{NO_DEPENDENCIES}}
-// Plik dołączany wygenerowany przez środowisko Microsoft Visual C++.
-// Używany przez: Clicker.rc
-//
-#define IDC_MYICON                      2
-#define IDD_CLICKER_DIALOG              102
+﻿
 #define IDS_APP_TITLE                   103
 #define IDD_ABOUTBOX                    103
 #define IDM_ABOUT                       104
 #define IDM_EXIT                        105
 #define IDD_HOWTOBOX                    110
 #define IDM_HOWTO                       111
-//#define IDS_APP_TITLE1                  106
-#define IDI_CLICKER                     107
-#define IDI_SMALL                       108
 #define IDC_CLICKER                     109
-//#define IDC_CLICKER1                    110
 #define IDR_MAINFRAME                   128
 #define IDI_ICONCHKN                    133
 #define IDC_STATIC                      -1
@@ -52,18 +43,11 @@
 #define EDT_HS4AVG                      676
 //=============================================== BOARD WINDOW ========================================
 #define BTN_NEXT                        701
-#define BAR_PB                          702
 #define EDT_LEVEL                       703
 #define IDT_TIMER                       704
 #define EDT_CUR                         705
 #define EDT_FST                         706
 #define EDT_AVG                         707
-#define IDB_CGREY1                      708
-#define IDB_CGREY2                      709
-#define IDB_CGREY3                      710
-#define IDB_CGREEN                      711
-#define IDB_CORANGE                     712
-#define IDB_CRED                        713
 #define IDT_TIMER1                      714
 #define IDT_TIMER2                      715
 #define IDT_TIMER3                      716
@@ -74,11 +58,7 @@
 #define IDC_NAME                        802
 #define EDT_NAME                        803
 #define BTN_CONFIRM                     804
-//=============================================== SCORES ==============================================
-//#define SCS_21NAME                      6
-//#define SCS_31NAME                      153
-//#define SCS_41NAME                      300
-//#define SCS_51NAME                      447
+
 
 // Next default values for new objects
 // 
