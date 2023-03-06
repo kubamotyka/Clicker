@@ -1,15 +1,3 @@
-﻿  pch.cpp
-  Clicker.cpp
-C:\DYSK D\Projekty\Clicker\Clicker.cpp(4,1): warning C4005: "UNICODE": ponowna definicja makra
-C:\DYSK D\Projekty\Clicker\Clicker.cpp : message : zobacz poprzednią definicję „UNICODE”
-C:\DYSK D\Projekty\Clicker\Clicker.cpp(4): warning C4603: UNICODE: makro jest niezdefiniowane lub definicja różni się po użyciu prekompilowanego nagłówka
-C:\DYSK D\Projekty\Clicker\Clicker.cpp(4): message : Dodaj makro do prekompilowanego nagłówka, zamiast definiować go w tym miejscu
-C:\DYSK D\Projekty\Clicker\Clicker.cpp(5): message : użyj prekompilowanego nagłówka
-C:\DYSK D\Projekty\Clicker\Clicker.cpp(831,16): warning C4244: "inicjowanie": konwersja z "LRESULT" do "int", możliwa utrata danych
-C:\DYSK D\Projekty\Clicker\Clicker.cpp(881,1): warning C4312: "typ rzutowania": konwersja z "int" na "HMENU" jest większej wielkości
-  Trwa generowanie kodu
-  Previous IPDB not found, fall back to full compilation.
-C:\DYSK D\Projekty\Clicker\Clicker.cpp(954): warning C4715: "OpenBoardWindow”: niewszystkie ścieżki kodu zwracają wartość
-  All 331 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
-  Zakończono generowanie kodu
-  Clicker.vcxproj -> C:\DYSK D\Projekty\Clicker\x64\Release\Clicker.exe
+﻿  Clicker.vcxproj -> C:\DYSK D\Projekty\Clicker\x64\Release\Clicker.exe
+  Clicker.vcxproj -> C:\DYSK D\Projekty\Clicker\x64\Release\Clicker.pdb (częściowy -> pełny plik PDB)
+C:\DYSK D\Projekty\Clicker\x64\Release\Clicker.pdb : fatal error CMF1107: wej
