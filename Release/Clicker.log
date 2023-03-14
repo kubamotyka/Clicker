@@ -1,3 +1,13 @@
-﻿  Clicker.vcxproj -> C:\DYSK D\Projekty\Clicker\x64\Release\Clicker.exe
-  Clicker.vcxproj -> C:\DYSK D\Projekty\Clicker\x64\Release\Clicker.pdb (częściowy -> pełny plik PDB)
-C:\DYSK D\Projekty\Clicker\x64\Release\Clicker.pdb : fatal error CMF1107: wej
+﻿  pch.cpp
+  Clicker.cpp
+C:\DYSK D\Projekty\Clicker\Clicker.cpp(14,1): warning C4005: "UNICODE": ponowna definicja makra
+C:\DYSK D\Projekty\Clicker\pch.cpp : message : zobacz poprzednią definicję „UNICODE”
+C:\DYSK D\Projekty\Clicker\Clicker.cpp(220,59): warning C4312: "typ rzutowania": konwersja z "int" na "HBRUSH" jest większej wielkości
+C:\DYSK D\Projekty\Clicker\Clicker.cpp(859,1): warning C4312: "typ rzutowania": konwersja z "int" na "HMENU" jest większej wielkości
+C:\DYSK D\Projekty\Clicker\Clicker.cpp(912,16): warning C4244: "inicjowanie": konwersja z "LRESULT" do "int", możliwa utrata danych
+  Trwa generowanie kodu
+  Previous IPDB not found, fall back to full compilation.
+C:\DYSK D\Projekty\Clicker\Clicker.cpp(939): warning C4715: "OpenBoardWindow”: niewszystkie ścieżki kodu zwracają wartość
+  All 329 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Zakończono generowanie kodu
+  Clicker.vcxproj -> C:\DYSK D\Projekty\Clicker\x64\Release\Clicker.exe
