@@ -1,5 +1,5 @@
 ﻿
-#define IDS_APP_TITLE                   103
+#define IDS_APP_TITLE                   102
 #define IDD_ABOUTBOX                    103
 #define IDM_ABOUT                       104
 #define IDM_EXIT                        105

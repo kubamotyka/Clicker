@@ -52,7 +52,7 @@ bool endPlay;                                                               // F
 
 
 #pragma region Functions
-ATOM                    MyRegisterClass(HINSTANCE hInstance, WNDPROC wProc, WCHAR &wcName, int nbrWindow, int nbrColor);    // Window class
+ATOM                    MyRegisterClass(HINSTANCE hInstance, WNDPROC wProc, WCHAR &wcName, int nbrColor, bool makeMenu);    // Window class
 BOOL                    InitInstance(HINSTANCE, int);                       // Main Window Instance Initialization
 LRESULT CALLBACK        WndProc(HWND, UINT, WPARAM, LPARAM);                // Process messages for Main Window
 LRESULT CALLBACK        WndProcB(HWND, UINT, WPARAM, LPARAM);               // Process messages for Board Window
@@ -170,7 +170,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,_In_opt_ HINSTANCE hPrevInstance,
     // Initiation of global strings
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
     LoadStringW(hInstance, IDC_CLICKER, szWindowClass, MAX_LOADSTRING);
-    MyRegisterClass(hInstance, WndProc, *szWindowClass, 0, 1);
+    MyRegisterClass(hInstance, WndProc, *szWindowClass, 1, 1);
 
     LoadStringW(hInstance, IDS_BOARD_TITLE, szTitleB, MAX_LOADSTRING);
     LoadStringW(hInstance, IDC_BOARD, szWindowClassB, MAX_LOADSTRING);
@@ -178,7 +178,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,_In_opt_ HINSTANCE hPrevInstance,
 
     LoadStringW(hInstance, IDS_NAME_TITLE, szTitleN, MAX_LOADSTRING);
     LoadStringW(hInstance, IDC_NAME, szWindowClassN, MAX_LOADSTRING);
-    MyRegisterClass(hInstance, WndProcN, *szWindowClassN, 2, 0);
+    MyRegisterClass(hInstance, WndProcN, *szWindowClassN, 0, 0);
 
     // Do aplication initiation:
     if (!InitInstance (hInstance, nCmdShow))
@@ -205,7 +205,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,_In_opt_ HINSTANCE hPrevInstance,
 
 
 // Register Window class function
-ATOM MyRegisterClass(HINSTANCE hInstance, WNDPROC wProc, WCHAR &wcName, int nbrWindow, int nbrColor)
+ATOM MyRegisterClass(HINSTANCE hInstance, WNDPROC wProc, WCHAR &wcName, int nbrColor, bool makeMenu)
 {
     WNDCLASSEXW wcex;
 
@@ -217,10 +217,15 @@ ATOM MyRegisterClass(HINSTANCE hInstance, WNDPROC wProc, WCHAR &wcName, int nbrW
     wcex.hInstance      = hInstance;
     wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_ICONCHKN));
     wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW);
-    wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW + nbrColor);
-    wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_CLICKER);
+    wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + nbrColor);
+    
     wcex.lpszClassName = &wcName;
     wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_ICONCHKN));
+
+    if (makeMenu)
+    {
+        wcex.lpszMenuName = MAKEINTRESOURCEW(IDC_CLICKER);
+    }
 
     return RegisterClassExW(&wcex);
 }
@@ -431,6 +436,31 @@ LRESULT CALLBACK WndProcB(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                         }
                     } break;
                 
+                    case IDM_ABOUT:
+                        DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
+                        break;  
+                        
+                    case IDM_HOWTO:
+                        DialogBox(hInst, MAKEINTRESOURCE(IDD_HOWTOBOX), hWnd, About);
+                        break;                       
+
+                    case IDM_EXIT:
+                    {
+                        bool goBack = false;
+
+                        if (endPlay == false && level != 1)
+                        {
+                            if (MessageBox(hWnd, L"But your'e still playing.\nDo you really want to give up?", L"Don't give up", MB_OKCANCEL) == IDOK)
+                            {
+                                DestroyWindow(hWnd);
+                            }
+                        }
+                        else
+                        {
+                            DestroyWindow(hWnd);
+                        }
+                    } break;
+                    
                     default:
                     {
                         return DefWindowProc(hWnd, message, wParam, lParam);
@@ -515,11 +545,32 @@ LRESULT CALLBACK WndProcN(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         
             switch (wmId)
             {
+                case IDM_ABOUT:
+                    DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
+                    break;
+                case IDM_HOWTO:
+                    DialogBox(hInst, MAKEINTRESOURCE(IDD_HOWTOBOX), hWnd, About);
+                    break;
                 case EDT_NAME:      
                     break;
                 case BTN_CONFIRM:
                     PostMessage(hWnd, WM_CLOSE, 0, 0);
                     break;
+                case IDM_EXIT:
+                {
+                    if (GetName() == "J.DOE")
+                    {
+                        if (MessageBox(hWnd, L"Hold on Baby Bull.\nDo You really want to quit without putting your name?", L"Don't be so shy", MB_OKCANCEL) == IDOK)
+                        {
+                            DestroyWindow(hWnd);
+                        }
+                    }
+                    else
+                    {
+                        SwapScores();
+                        DestroyWindow(hWnd);
+                    }
+                } break;
                 default:
                     return DefWindowProc(hWnd, message, wParam, lParam);
             }
@@ -901,13 +952,13 @@ void OpenNameWindow()
     HWND tmpControl;
     
     tmpControl = CreateWindowW(L"static", L"Type your name:", WS_VISIBLE | WS_CHILD | SS_LEFT,
-        25, 20, 300, 20, hwndName, NULL, nullptr, nullptr);
+        35, 20, 300, 20, hwndName, NULL, nullptr, nullptr);
     
     tmpControl = CreateWindowW(L"Button", L"Confirm", WS_VISIBLE | WS_CHILD,
-        40, 80, 80, 40, hwndName, (HMENU)BTN_CONFIRM, nullptr, nullptr);
+        50, 80, 80, 40, hwndName, (HMENU)BTN_CONFIRM, nullptr, nullptr);
     
     tmpControl = CreateWindowW(L"edit", L"", WS_VISIBLE | WS_CHILD | WS_BORDER,
-        40, 50, 80, 20, hwndName, (HMENU)EDT_NAME, nullptr, nullptr);
+        50, 50, 80, 20, hwndName, (HMENU)EDT_NAME, nullptr, nullptr);
     
     SendMessage(tmpControl, EM_SETLIMITTEXT, 5, 0);
    
